@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Speech English</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="Modal.css" rel="stylesheet" />
+    <script defer src="script.js"></script>
+    <script defer src="dbService.js"></script>
+    <script defer src="init.js"></script>
+    <script defer src="comments.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+  </head>
+  <body>
+    <h2 id="myHeading"></h2>
+    <div class="container">
+      <div class="text-field left-field">
+        <div class="sub-field sub-field-1">
+          <div class="controls">
+            <div id="buttons">
+              <button id="play" title="Озвучить">▶️</button>
+              <button id="playAll" title="Озвучить все фразы">🎧</button>
+              <button id="stop" title="Остановить">⏹️</button>
+            </div>
+          </div>
+        </div>
+        <div class="sub-field sub-field-2">
+          <div class="select-controls">
+            <select id="category"></select>
+            <select id="topic" style="display: none"></select>
+          </div>
+        </div>
+        <div class="sub-field sub-field-remaining">
+          <div id="phrases"></div>
+        </div>
+      </div>
+      <div class="text-field right-field">
+        <div id="selected-phrase"></div>
+        <div id="extra-text"></div>
+        <div id="rus-text"></div>
+        <div id="comments"></div>
+        <div class="commCtrl" id="commCtrl">
+          <button id="showRuBtn">🗣️Показать перевод</button>
+          <button id="readCommBtn">🔊Читать комментарий</button>
+          <button id="readRuBtn">🎤Читать перевод</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="rightMenu">
+      <ul>
+        <li>Перевести</li>
+        <li>Сказать</li>
+      </ul>
+    </div> -->
+    <div id="translationModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="modalOriginalText"></p>
+        <!-- <br /> -->
+        <p id="modalTranslationText"></p>
+      </div>
+    </div>
+    <div id="empty" style="display: none">fordeleting html tags</div>
+  </body>
+</html>
