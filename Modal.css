@@ -1,0 +1,75 @@
+/* Общие стили модального окна */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; /* Остается на месте при прокрутке */
+  z-index: 1000; /* Поверх всего остального контента */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  /* Позволяет прокручивать, если содержимое слишком большое */
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+  font-size: medium;
+  font-family: Comic Sans MS;
+  /* font-size: 1rem; */
+  background-color: #fefefe;
+  padding: 5px;
+  /* border: 5p x solid #888; */
+  width: 50vh; /* Может быть фиксированной ширины или процентом */
+  /* max-width: 600px;  */
+  max-height: 80vh; /* Задаем максимальную высоту, например, 80% от высоты экрана */
+
+  overflow-y: auto;
+  border-radius: 10px; /* Скругленные углы */
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  pointer-events: auto;
+}
+/* Кнопка закрытия */
+.close-button {
+  /* position: static; */
+  color: red;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: -15px;
+  right: 1px;
+  cursor: pointer;
+  text-align: right;
+  /* border: 1px solid red; */
+}
+
+.close-button:hover,
+.close-button:focus {
+  /* color: darkred; */
+  text-decoration: none;
+  /* cursor: pointer !important; */
+}
+#modalOriginalText {
+  /* font-size: 1rem; */
+  /* font-weight: bold; */
+  color: red;
+  white-space: pre-wrap;
+  margin: 0;
+}
+#modalTranslationText {
+  /* font-style: italic; */
+  /* font-size: 1rem; */
+  /* font-weight: bold; */
+  color: green;
+  white-space: pre-wrap;
+  text-align: justify;
+  margin: 0;
+}
+/* #modalTranslationText:not(:empty), */
+#modalOriginalText:not(:empty) {
+  border-bottom: 1px solid black;
+  padding-bottom: 6px;
+}

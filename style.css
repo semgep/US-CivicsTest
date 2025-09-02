@@ -1,0 +1,214 @@
+html {
+  font-size: 1rem; /* базовый размер 1rem = 16px */
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html,
+body {
+  height: 100%;
+  margin: 0; /* Убираем стандартные отступы */
+  padding: 0; /* Убираем стандартные отступы */
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* запрещаем глобальный скролл */
+}
+h2 {
+  flex-shrink: 0; /* h2 не будет сжиматься, если места мало */
+  text-align: center; /* Centers the text */
+  margin: 0;
+}
+.container {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  /* flex-grow: 1; */
+  width: 100%;
+  gap: 5px; /* Удаляем или настраиваем, если нужен зазор */
+  padding: 5px; /* Удаляем внутренние отступы, если не нужны по краям */
+}
+.text-field {
+  flex-basis: 0;
+  /* flex-grow: 1; */
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #007bff;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.left-field {
+  flex-grow: 4; /* Левое поле занимает 40% (4 доли) */
+  background-color: #e0f2f7; /* Немного другой цвет для отличия */
+  display: flex; /* **Делаем левое поле Flex-контейнером** */
+  flex-direction: column; /* **Элементы внутри будут располагаться вертикально** */
+  padding: 0; /* **Удаляем padding здесь, чтобы подполя заняли всю ширину/высоту** */
+  border: none; /* **Убираем рамку, если не нужна для самого левого поля** */
+  min-height: 0;
+}
+.sub-field {
+  background-color: #d1e7ed; /* Фон для подполей */
+  border: 1px solid #5cb8e6;
+}
+.sub-field-1 {
+  height: 3.4%; /* Высота 10% от родителя (.left-field) */
+  flex-shrink: 0; /* Не сжиматься, если места мало */
+}
+#buttons {
+  display: flex;
+  overflow: hidden;
+}
+#buttons button {
+  background: none;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+.sub-field-2 {
+  height: 7%; /* Высота 10% от родителя (.left-field) */
+  flex-shrink: 0;
+}
+
+#topic,
+#category {
+  background-color: yellow;
+  font-size: 1.2rem;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  width: fit-content;
+  min-width: 150px; /* Минимальная ширина, чтобы не был слишком узким, если текст короткий */
+  max-width: 90%; /* Максимальная ширина, чтобы не растягивался на весь экран, если текст ОЧЕНЬ длинный */
+}
+.sub-field-remaining {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative; /* ✅ Важно: устанавливаем относительное позиционирование */
+}
+select {
+  font-size: 1rem;
+  padding: 0.3rem;
+  display: block; /* Делает select блочным элементом, чтобы margin:auto работал и каждый был на новой строке */
+  margin: auto;
+  text-align: center; /* Центрирует текст выбранной опции в поле */
+  text-align-last: center; /* Может помочь центрировать опции в выпадающем списке в некоторых браузерах */
+}
+#phrases {
+  position: absolute; /* ✅ Абсолютное позиционирование */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto; /* ✅ Вот теперь прокрутка точно будет работать */
+}
+.phrase {
+  padding: 0.1rem;
+  cursor: pointer;
+  font-size: large;
+  font-family: Comic Sans MS;
+  border-bottom: 0.0625rem solid darkgray;
+}
+.phrase:hover {
+  background-color: red;
+}
+.phrase:nth-child(odd) {
+  background-color: lightblue; /* нежно-синий для нечётных */
+}
+.phrase:nth-child(even) {
+  background-color: lightgreen; /* нежно-зелёный для чётных */
+}
+.controls {
+  /* background-color: lime; */
+  font-size: 1em;
+  justify-content: center;
+  margin-top: auto;
+}
+.controls {
+  background-color: lime;
+  display: flex;
+}
+.selected {
+  background-color: deepskyblue !important;
+  font-weight: bold;
+}
+.right-field {
+  display: flex;
+  flex-grow: 6; /* Правое поле занимает 60% (6 долей) */
+  background-color: #f0f7e0; /* Немного другой цвет для отличия */
+  flex-direction: column; /* Элементы внутри будут располагаться вертикально */
+  min-height: 0;
+}
+#selected-phrase,
+#extra-text,
+#rus-text,
+#comments {
+  flex: 0 0 auto;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: bold;
+}
+#selected-phrase {
+  font-size: 1.2rem;
+  color: red;
+  margin: 0; /* Добавьте, чтобы убрать возможные стандартные отступы */
+  padding-bottom: 6px;
+}
+#extra-text {
+  font-size: 1.2rem;
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+#rus-text {
+  font-size: 1.2rem;
+  color: blue;
+}
+#comments {
+  flex: 1;
+  flex-grow: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+  font-family: Comic Sans MS;
+  color: green;
+  text-align: justify;
+  min-height: 0;
+}
+#comments:not(:empty) {
+  border-top: 4px double black; /* Граница появится только если div не пустой */
+  padding-top: 4px; /* Паддинг появится только если div не пустой */
+}
+#extra-text,
+#rus-text {
+  margin-top: 0;
+  margin-bottom: 0; /* Убедитесь, что нет нижних отступов */
+}
+#extra-text:not(:empty),
+#rus-text:not(:empty) {
+  border-top: 1px solid black;
+  padding-bottom: 6px;
+}
+.commCtrl {
+  flex: 0 0 auto;
+  font-size: 1em;
+  justify-content: center;
+  margin-top: auto;
+}
+.commCtrl {
+  flex-grow: 0;
+  flex-shrink: 0; /* ✅ Гарантирует, что кнопки не будут сжиматься */
+  margin-top: auto;
+}
+.commCtrl button {
+  cursor: pointer;
+  margin: 0 5px;
+}
