@@ -37,9 +37,9 @@ async function loadDB() {
       locateFile: (DBname) =>
         `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${DBname}`,
     });
-    const URL = `http://localhost:3001/db/${DBname}`;
+    // const URL = `http://localhost:3001/db/${DBname}`;
     // const URL = `./db/${DBname}`;  //  для GitHub
-    // const URL = `${DBname}`;  //  для GitHub
+    const URL = `${DBname}`; //  для GitHub
     const response = await fetch(URL, { cache: "no-store" });
     if (!response.ok) {
       console.error(
